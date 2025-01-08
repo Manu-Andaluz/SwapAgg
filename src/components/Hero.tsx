@@ -20,6 +20,7 @@ export default function Hero() {
   const [amount, setAmount] = useState(0);
   const [outputAmount, setOutputAmount] = useState<number | null>(null);
   const [loading, setLoading] = useState(false);
+  const [slippage, setSlippage] = useState(0.5);
 
   const getQuote = async () => {
     try {
@@ -29,7 +30,7 @@ export default function Hero() {
           `https://quote-api.jup.ag/v6/quote?inputMint=${TOKEN_MINTS[fromToken]}\
 &outputMint=${TOKEN_MINTS[toToken]}\
 &amount=${amount * 1000000}\
-&slippageBps=50`
+&slippageBps=${slippage * 100}`
         )
       ).json();
 
@@ -101,6 +102,12 @@ export default function Hero() {
                 </SelectContent>
               </Select>
             </div>
+          </div>
+          <div className="mb-4">
+            <label htmlFor="slippage" className="block text-sm font-medium text-gray-700 mb-1">
+              Slippage Tolerance (%)
+            </label>
+            <Input id="slippage" type="number" step="0.1" min="0.1" max="100" value={slippage} onChange={(e) => setSlippage(Number(e.target.value))} className="w-full" />
           </div>
           <Button
             className="w-full bg-gradient-to-r from-light-blue to-light-purple text-white font-semibold py-3 rounded-lg hover:opacity-90 transition duration-300"
