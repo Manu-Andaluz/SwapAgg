@@ -5,7 +5,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "SwapAgg - Token Swap Aggregator",
-  description: "Effortless token swaps at the best rates",
+  description: "Effortless token swaps",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

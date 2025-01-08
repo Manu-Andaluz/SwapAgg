@@ -1,22 +1,22 @@
-import { Wallet, ArrowRightLeft, CheckCircle } from 'lucide-react'
+import { Wallet, ArrowRightLeft, CheckCircle } from "lucide-react";
 
 const steps = [
   {
-    name: 'Connect your wallet',
-    description: 'Link your preferred crypto wallet to get started.',
+    name: "Connect your wallet",
+    description: "Link your preferred crypto wallet to get started.",
     icon: Wallet,
   },
   {
-    name: 'Select the tokens you want to swap',
-    description: 'Choose from a wide range of supported tokens.',
+    name: "Select the tokens you want to swap",
+    description: "Choose from a wide range of supported tokens.",
     icon: ArrowRightLeft,
   },
   {
-    name: 'Confirm the transaction at the best rates',
-    description: 'Review and approve the swap with the most competitive rates.',
+    name: "Confirm the transaction",
+    description: "Review and approve the swap with the most competitive rates.",
     icon: CheckCircle,
   },
-]
+];
 
 export default function HowItWorks() {
   return (
@@ -31,14 +31,11 @@ export default function HowItWorks() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">{step.name}</h3>
               <p className="text-gray-600">{step.description}</p>
-              {index < steps.length - 1 && (
-                <div className="hidden md:block text-light-purple text-4xl font-bold mt-4">→</div>
-              )}
+              {index < steps.length - 1 && <div className="hidden md:block text-light-purple text-4xl font-bold mt-4">→</div>}
             </div>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
-
